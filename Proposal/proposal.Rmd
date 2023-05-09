@@ -9,6 +9,8 @@ library(knitr)
 library(tidyverse)
 library(broom)
 library(htmltools)
+library(skimr)
+library(dplyr)
 ```
 
 ```{r setup, include = FALSE}
@@ -32,7 +34,6 @@ By analyzing the Kiva dataset and using statistical modeling techniques, we hope
 WHAT IS OUR APPROACH?
 
 ## 2. Data
-
 ```{r}
 kiva_data <- read.csv("/Users/eyal.benbarouch/Documents/שטיות שלי/Studies/סמסטר ד/תכנות וניתוח נתונים/פריוקט סיום/kiva/loans_splitted/loans_splitted_0.csv")
 
@@ -41,9 +42,37 @@ head(kiva_data)
 kiva_data%>%
   select_if(is.numeric)%>%
   summary()
-
 ```
-
+### Loading the datasets:
+```{r}
+lenders <- read.csv("lenders.csv")
+loan_lenders <- read.csv("loans_lenders.csv")
+loans <- read.csv("loans.csv")
+```
+### CSV's Dimensions:
+```{r}
+cat("The lenders CSV size is")
+dim.data.frame(lenders)
+cat("The loan_lenders CSV size is")
+dim.data.frame(loan_lenders)
+cat("The loans CSV size is")
+dim.data.frame(loans)
+```
+###Skim:
+```{r}
+skim(loans)
+skim(lenders)
+skim(loan_lenders)
+```
+###Glimpse:
+```{r}
+cat("loans CSV - ")
+glimpse(loans)
+cat("lenders CSV - ")
+glimpse(lenders)
+cat("loan_lenders CSV - ")
+glimpse(loan_lenders)
+```
 
 ## 3. Preliminary results
 
