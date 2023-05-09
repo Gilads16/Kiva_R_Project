@@ -17,13 +17,41 @@ opts_chunk$set(echo=FALSE) # hide source code in the document
 
 ## 1. Introduction
 
+Kiva is a microfinance organization that connects lenders with borrowers in developing countries. Through its online platform, Kiva enables individuals and organizations to lend money to entrepreneurs and small business owners who are seeking financial assistance to start or grow their businesses. The Kiva dataset contains a wealth of information on loans funded through the platform, including borrower characteristics, loan terms, and repayment data.
+
+Access to financing is essential for economic development, poverty reduction, and financial inclusion. However, the risk of default and non-repayment is a major concern for lenders, particularly in the case of microfinance. This worldwide problem has motivated the use of predictive models to estimate the likelihood of loan repayment, which can help lenders make informed decisions and allocate resources more efficiently.
+
+The general problem area that this analysis contributes to is the development of predictive/explanatory modeling for microfinances that can help lenders lower the risk of default and make more efficient decisions using data.
+
+In this study, we aim to investigate the predictive power of loan characteristics on loan repayment. Specifically, we will explore whether loans with more people contributing to them have a higher chance of being paid back or not. This is based on the idea that the collective knowledge and expertise of multiple lenders, also known as the "wisdom of the crowd," may lead to better lending decisions and ultimately, better loan performance.
+
+This problem is hard to assess because loan repayment is affected by multiple factors, including borrower characteristics, loan terms, social dynamics, and external factors such as economic conditions. Moreover, the dataset is complex, with a large number of variables and observations, and requires careful cleaning, preprocessing, and feature engineering. This problem was researched before and we added notable researches regarding the topic in the Appendix.
+
+By analyzing the Kiva dataset and using statistical modeling techniques, we hope to shed light on the factors that influence loan repayment and provide insights into how microfinance institutions can use data to improve their lending practices.
+
+WHAT IS OUR APPROACH?
+
 ## 2. Data
+
+```{r}
+kiva_data <- read.csv("/Users/eyal.benbarouch/Documents/שטיות שלי/Studies/סמסטר ד/תכנות וניתוח נתונים/פריוקט סיום/kiva/loans_splitted/loans_splitted_0.csv")
+
+head(kiva_data)
+
+kiva_data%>%
+  select_if(is.numeric)%>%
+  summary()
+
+```
+
 
 ## 3. Preliminary results
 
 ## 4. Data analysis plan
 
 ## Appendix
+https://escholarship.org/uc/item/9cc4t85b#article_main - Loan Repayment Prediction Using Machine Learning Algorithms by Chang Han 2019
+
 
 ### Data README
 
